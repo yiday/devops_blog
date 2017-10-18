@@ -5,7 +5,7 @@ title: jekyll文件结构
 
 # {{ page.title }}
 
-```
+```text
 |-- _config.yml
 |-- _includes
 |   |-- header.html
