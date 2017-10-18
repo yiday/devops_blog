@@ -18,7 +18,7 @@ Object.prototype
 ## Object.create()
 
 Object.create()是静态函数
-### 用法
+> ### 用法
 var o1 = Object.create({x: 1, y: 2})
 
 <p>{{ page.date | date_to_string }}</p>
