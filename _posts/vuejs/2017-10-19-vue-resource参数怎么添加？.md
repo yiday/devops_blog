@@ -5,4 +5,15 @@ title: vue-resource参数怎么添加？
 
 # {{ page.title }}
 
-![test](https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png){:height="50%" width="50%"}
+## 为url添加参数
+在jsonp第二个参数里添加params作为key
+```javascript
+this.$http.jsonp('https://api.douban.com/v2/movie/top250', {params:{count:10}}, {
+        headers: {
+
+        },
+
+        emulateJSON: true
+    }
+url 相当于 https://api.douban.com/v2/movie/top250?count=10
+```
