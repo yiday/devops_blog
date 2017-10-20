@@ -1,6 +1,6 @@
 ---
 layout: default
-title: vue-resource参数怎么添加？
+title: javascript任务理解
 ---
 
 # {{ page.title }}
