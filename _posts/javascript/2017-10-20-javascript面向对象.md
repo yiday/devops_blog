@@ -5,6 +5,19 @@ title: javascript面向对象
 
 # {{ page.title }}
 
+## 简单数据类型
+数字、字符串、布尔值、null、undefined
+它们都是“貌似”对象，因为它们拥有方法，但它们是不可变的。
+
+## 对象
+数组、函数、正则表达式、*对象*
+
+## 对象特性
+1. 无类型的(class-free)
+2. 对象是属性的容器,属性值可以是除undefined外的任何值
+3. 原型链特性
+
+
 ## 对象字面量表示
 ```javascript
 var lucy = {
@@ -25,6 +38,9 @@ lucy["name"]
 lucy["email"]
 lucy["website"]
 ```
+
+key可以用引号（单、双）括起来，如果key里有中划线，则必须要引起来，如
+first-name => "first-name"
 
 ## 定义成员函数
 ### 非规范写法
@@ -109,3 +125,9 @@ Object.defineProperty()
 
 Object.defineProperties()
  给对像添加多个属性
+
+
+ ## 原型
+
+ 所有对象字面量创建的对象都连接到Object.prototype（标配对象）
+ 原型连接只有在检索值的时候才被用到
