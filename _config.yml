@@ -1,5 +1,6 @@
 baseurl: /
 highlighter: rouge
+paginate: 5
 markdown: kramdown
 kramdown:
   input: GFM

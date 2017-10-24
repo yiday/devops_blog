@@ -90,11 +90,21 @@ this.a // 37
 
 6. 原型链中的this
 
+   相同的概念在定义在原型链中的方法也是一致的。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象，就好像该方法本来就存在于这个对象上。
+   ```javascript
+   Function.prototype.method = function(name, func) {
+		this.prototype[name] = func
+		return this
+	}
+   ```
+
 
 7. getter与setter中的this
 
 8. 作为一个构造函数
+  当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。
 
 9. 作为一个DOM事件的处理函数
 
 10. 作为一个内联事件处理函数
+   当代码被内联处理函数调用时，它的this指向监听器所在的DOM元素：
