@@ -74,3 +74,10 @@ Math.sign(11.2) //1
 
 ### min([x[,y[,...]]])
 返回0个到多个数值中最小值
+
+
+### pow(base, exponent)
+返回基数(base)的指数(exponent)次幂
+```javascript
+Math.pow(2, 3) //8
+```

@@ -121,7 +121,7 @@ Object.defineProperty()
 
   Alien.name = 'bbb'
   alert(Alien.name)
- ```
+```
 
 Object.defineProperties()
  给对像添加多个属性

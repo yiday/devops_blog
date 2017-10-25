@@ -104,3 +104,56 @@ try{
 	alert(e.name + ': ' + e.message)
 }
 ```
+
+
+## 记忆(memoization)
+函数可以将先前的操作结果记录到某个对象里，从而避免重复运算
+
+```javascript
+var memoizer = function (memo, formula) {
+  var recur = function(n) {
+    var result = memo[n]
+    if (typeof result !== 'number') {
+      result = formula (recur, n)
+      memo[n] = result
+    }
+    return result
+  }
+  return recur
+}
+
+var fibonacci = memoizer([0, 1], function(recur, n) {
+  return recur (n-1) + recur(n-2)
+})
+```
+
+
+## 高阶函数（Higher-order function）
+JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。
+
+```javascript
+function add(x, y, func) {
+  return func(x) + func(y)
+}
+
+add(-4, -5, Math.abs)
+```
+
+### map
+
+
+### reduce
+
+
+### filter
+根据传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。
+
+例如，以下filter是去除arr中的偶数
+```javascript
+var arr = [1,2,3,4,5,6]
+arr.filter(function(x) {
+  return x % 2 !== 0
+})
+
+```
+### sort
