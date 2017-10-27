@@ -43,32 +43,31 @@ console.log(gval) // 333
 3. 函数的this指向哪个作用域？
 
 ```javascript
-   var name = "The Window";
-　　var object = {
-　　　　name : "My Object",
-　　　　getNameFunc : function(){
-　　　　　　return function(){
-　　　　　　　　return this.name;
-　　　　　　};
-　　　　}
-　　};
-　　alert(object.getNameFunc()()); // The Window
+var name = "The Window";
+var object = {
+  name : "My Object",
+  getNameFunc : function(){
+    return function(){
+      return this.name;
+    };
+  }
+};
+alert(object.getNameFunc()()); // The Window
 
 ```
 
 ```javascript
-   var name = "The Window";
-　　var object = {
-　　　　name : "My Object",
-　　　　getNameFunc : function(){
-　　　　　　var that = this;
-　　　　　　return function(){
-　　　　　　　　return that.name;
-　　　　　　};
-　　　　}
-　　};
-　　alert(object.getNameFunc()()); // My Object
-
+var name = "The Window";
+var object = {
+  name : "My Object",
+  getNameFunc : function(){
+  var that = this;
+    return function(){
+        return that.name;
+      };
+  }
+};
+alert(object.getNameFunc()()); // My Object
 ```
 
 ## 链式作用域（chain scope）
