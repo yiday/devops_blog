@@ -129,5 +129,76 @@ Object.defineProperties()
 
  ## 原型
 
+![avatar](http://images.cnitblog.com/blog/476499/201310/10141012-dcee2678158a4c95a1338d358144403a.jpg)
+
  所有对象字面量创建的对象都连接到Object.prototype（标配对象）
  原型连接只有在检索值的时候才被用到
+
+ ### \_\_proto\_\_ 与prototype
+ 指向创建这个对象的函数的显式原型(prototype)，关键点：找到创建这个对象的构造函数
+
+ **所有构造函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）**
+prototype是什么？
+是一个函数,是对象
+对象的\_\_proto\_\_是什么？
+是一个属性,指向这个对象的构造函数的prototye
+```javascript
+var Foo = function() {}
+
+var f1 = new Foo()
+f1.__proto__ === Foo.prototype // true
+
+```
+
+函数的构造函数是什么？
+是Function,所以
+```javascript
+Foo.__proto__ === Function.prototype //true
+
+```
+
+
+
+.prototype是一个对象的原型对象，而.\_\_proto\_\_则是对原型对象的引用！
+
+
+* Object.prototype 指向的原型是null
+* 函数都继承自Function.prototype
+   ```javascript
+   var Foo = function() {}
+   Foo.__proto__ === Function.prototype // true
+   ```
+
+三种创建对象的方式
+
+* 字面量对象
+   ```javascript
+   var person = {}
+   person.__proto__ === Object.prototype //true
+
+   ```
+
+* 通过构造函数生成的对象
+  ```javascript
+  function Person() {}
+  var p = new Person()
+  p.__proto__ === Person.prototype // true
+  Person.__proto__ === Function.prototype // true
+  ```
+
+* Object.create构造
+  ```javascript
+  var person = {}
+  var p = Object.create(person)
+  p.__proto__ === person //true
+
+  ```
+  在没有Object.create的时候，通常可以这样做，
+  ```javascript
+  Object.create = function(p) {
+    function f(){}
+    f.prototype = p;
+    return new f();
+  }
+
+  ```
